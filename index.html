@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Account Plan Builder | Sigma Computing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -20,18 +23,48 @@
 
     <main class="main">
       <section class="card form-card">
-        <h2 class="card__title">Account Details</h2>
-        <p class="card__description">Fill in what you know. Leave fields blank if you don't have the info yet.</p>
+        <div class="card__header">
+          <div class="card__header-icon" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <div>
+            <h2 class="card__title">Account Details</h2>
+            <p class="card__description">Fill in what you know. Leave fields blank if you don't have the info yet.</p>
+          </div>
+        </div>
 
         <form id="account-form" class="form" novalidate>
-          <div class="form__row">
-            <label class="form__label" for="company-name">Company Name</label>
-            <input class="form__input" type="text" id="company-name" name="companyName" placeholder="e.g. Acme Corp" required>
+          <div class="form__row" id="row-company-name">
+            <label class="form__label" for="company-name">
+              Company Name <span class="form__required" aria-hidden="true">*</span>
+            </label>
+            <input
+              class="form__input"
+              type="text"
+              id="company-name"
+              name="companyName"
+              placeholder="e.g. Northwind Industries"
+              required
+              aria-describedby="error-company-name"
+            >
+            <p class="form__error" id="error-company-name" role="alert"></p>
           </div>
 
-          <div class="form__row">
-            <label class="form__label" for="industry">Industry</label>
-            <input class="form__input" type="text" id="industry" name="industry" placeholder="e.g. Retail, Healthcare, Financial Services">
+          <div class="form__grid">
+            <div class="form__row">
+              <label class="form__label" for="industry">Industry</label>
+              <input class="form__input" type="text" id="industry" name="industry" placeholder="e.g. Retail, Healthcare, Financial Services">
+            </div>
+
+            <div class="form__row">
+              <label class="form__label" for="competitors">Competitors</label>
+              <input class="form__input" type="text" id="competitors" name="competitors" placeholder="e.g. Tableau, Looker, Power BI">
+            </div>
           </div>
 
           <div class="form__row">
@@ -54,14 +87,30 @@
             <textarea class="form__textarea" id="key-personas" name="keyPersonas" rows="2" placeholder="e.g. VP Analytics, Data Engineering Lead, Finance Analyst"></textarea>
           </div>
 
-          <div class="form__row">
-            <label class="form__label" for="competitors">Competitors</label>
-            <input class="form__input" type="text" id="competitors" name="competitors" placeholder="e.g. Tableau, Looker, Power BI">
+          <div class="form__actions">
+            <button type="button" class="btn btn--secondary" id="load-sample-btn">
+              <svg class="btn__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="12" y1="18" x2="12" y2="12"/>
+                <line x1="9" y1="15" x2="15" y2="15"/>
+              </svg>
+              Load Sample Data
+            </button>
+            <button type="button" class="btn btn--ghost" id="clear-form-btn">
+              <svg class="btn__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="3 6 5 6 21 6"/>
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/>
+              </svg>
+              Clear Form
+            </button>
+            <button type="submit" class="btn btn--primary" id="generate-btn">
+              <svg class="btn__icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+              </svg>
+              Generate Account Plan
+            </button>
           </div>
-
-          <button type="submit" class="btn btn--primary" id="generate-btn">
-            Generate Account Plan
-          </button>
         </form>
       </section>
 
