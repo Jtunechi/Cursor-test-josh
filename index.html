@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Plan Builder | Sigma Computing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <div class="header__brand">
+        <span class="header__logo">Σ</span>
+        <div>
+          <h1 class="header__title">Account Plan Builder</h1>
+          <p class="header__subtitle">Turn discovery notes into a structured account plan in seconds</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <section class="card form-card">
+        <h2 class="card__title">Account Details</h2>
+        <p class="card__description">Fill in what you know. Leave fields blank if you don't have the info yet.</p>
+
+        <form id="account-form" class="form" novalidate>
+          <div class="form__row">
+            <label class="form__label" for="company-name">Company Name</label>
+            <input class="form__input" type="text" id="company-name" name="companyName" placeholder="e.g. Acme Corp" required>
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="industry">Industry</label>
+            <input class="form__input" type="text" id="industry" name="industry" placeholder="e.g. Retail, Healthcare, Financial Services">
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="current-tools">Current Tools</label>
+            <textarea class="form__textarea" id="current-tools" name="currentTools" rows="2" placeholder="e.g. Tableau, Snowflake, Excel, Looker"></textarea>
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="business-initiatives">Business Initiatives</label>
+            <textarea class="form__textarea" id="business-initiatives" name="businessInitiatives" rows="3" placeholder="e.g. Modernize analytics, reduce time-to-insight, enable self-serve BI"></textarea>
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="pain-points">Suspected Pain Points</label>
+            <textarea class="form__textarea" id="pain-points" name="painPoints" rows="3" placeholder="e.g. Slow dashboards, IT bottleneck, inconsistent metrics"></textarea>
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="key-personas">Key Personas</label>
+            <textarea class="form__textarea" id="key-personas" name="keyPersonas" rows="2" placeholder="e.g. VP Analytics, Data Engineering Lead, Finance Analyst"></textarea>
+          </div>
+
+          <div class="form__row">
+            <label class="form__label" for="competitors">Competitors</label>
+            <input class="form__input" type="text" id="competitors" name="competitors" placeholder="e.g. Tableau, Looker, Power BI">
+          </div>
+
+          <button type="submit" class="btn btn--primary" id="generate-btn">
+            Generate Account Plan
+          </button>
+        </form>
+      </section>
+
+      <section id="plan-output" class="plan-output plan-output--hidden" aria-live="polite">
+        <!-- Generated plan appears here -->
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built for Sigma Computing sales teams</p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
