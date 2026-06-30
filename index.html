@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Account Plan Builder | Sigma Computing</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-mark">Σ</span>
+        <div>
+          <p class="logo-title">Account Plan Builder</p>
+          <p class="logo-subtitle">Sigma Computing</p>
+        </div>
+      </div>
+      <p class="header-tagline">Turn discovery notes into a structured account plan in seconds.</p>
+    </div>
+  </header>
+
+  <main class="app-main">
+    <section class="panel form-panel">
+      <div class="panel-header">
+        <h1>Account Details</h1>
+        <p>Fill in what you know today. You can always refine the plan after generating it.</p>
+      </div>
+
+      <form id="account-form">
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="company-name">Company Name</label>
+            <input type="text" id="company-name" name="companyName" placeholder="e.g. Acme Corp" required>
+          </div>
+
+          <div class="form-group">
+            <label for="industry">Industry</label>
+            <input type="text" id="industry" name="industry" placeholder="e.g. Retail, Healthcare, SaaS">
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="current-tools">Current Tools</label>
+            <textarea id="current-tools" name="currentTools" rows="2" placeholder="e.g. Snowflake, Tableau, Excel, Looker"></textarea>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="business-initiatives">Business Initiatives</label>
+            <textarea id="business-initiatives" name="businessInitiatives" rows="3" placeholder="e.g. Improve forecast accuracy, reduce time-to-insight, expand self-service analytics"></textarea>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="pain-points">Suspected Pain Points</label>
+            <textarea id="pain-points" name="painPoints" rows="3" placeholder="e.g. BI backlog, inconsistent metrics, slow ad-hoc analysis"></textarea>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="key-personas">Key Personas</label>
+            <textarea id="key-personas" name="keyPersonas" rows="2" placeholder="e.g. VP Analytics, Head of Data, Finance Director"></textarea>
+          </div>
+
+          <div class="form-group form-group-full">
+            <label for="competitors">Competitors</label>
+            <textarea id="competitors" name="competitors" rows="2" placeholder="e.g. Tableau, Looker, Power BI, ThoughtSpot"></textarea>
+          </div>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn btn-primary">Generate Account Plan</button>
+          <button type="reset" class="btn btn-secondary">Clear Form</button>
+        </div>
+      </form>
+    </section>
+
+    <section id="plan-output" class="panel plan-panel hidden" aria-live="polite">
+      <div class="panel-header plan-header">
+        <div>
+          <p class="plan-label">Generated Account Plan</p>
+          <h2 id="plan-company-title"></h2>
+        </div>
+        <button type="button" id="print-plan" class="btn btn-ghost">Print / Save PDF</button>
+      </div>
+
+      <article class="plan-section">
+        <h3>Executive Summary</h3>
+        <p id="executive-summary"></p>
+      </article>
+
+      <article class="plan-section">
+        <h3>Top 3 Business Hypotheses</h3>
+        <ol id="business-hypotheses" class="plan-list"></ol>
+      </article>
+
+      <article class="plan-section">
+        <h3>Likely Technical Stakeholders</h3>
+        <ul id="technical-stakeholders" class="plan-list"></ul>
+      </article>
+
+      <article class="plan-section">
+        <h3>Discovery Questions</h3>
+        <ul id="discovery-questions" class="plan-list"></ul>
+      </article>
+
+      <article class="plan-section">
+        <h3>Potential Sigma Value Prop</h3>
+        <ul id="sigma-value-prop" class="plan-list"></ul>
+      </article>
+
+      <article class="plan-section">
+        <h3>Mutual Action Plan — Next Steps</h3>
+        <ol id="mutual-action-plan" class="plan-list action-list"></ol>
+      </article>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <p>Built for Sigma Computing sales teams. Runs entirely in your browser — no data is sent anywhere.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
